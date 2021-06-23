@@ -17,11 +17,10 @@ module.exports = {
         }
        
             client.on('message',(message) => {
-                console.log(answerme_list_user_activate)
                 const emoji_answerme = message.guild.emojis.cache.get('784834794462248980');
-                
-                if(answerme_list_user_activate.find(item => item.id === user.id) != undefined){
-                    const answerme_item = answerme_list_user_activate.find(item => item.id === message.author.id)
+                const answerme_item = answerme_list_user_activate.find(item => item.id === message.author.id)
+
+                if(answerme_item !== undefined){
                     if(answerme_item.allow){
                         message.react(emoji_answerme)
                         .then((response) => console.log("Emoji added"))
