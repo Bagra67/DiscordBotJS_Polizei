@@ -1,5 +1,6 @@
 require("dotenv").config();
 const utils_command = require("./command/utils")
+const sanction_command = require("./command/sanction")
 const { Client, WebhookClient } = require('discord.js');
 
 const client = new Client({
@@ -37,6 +38,13 @@ client.on('message', async (message) => {
       return
     }else{
       /*MODERATOR COMMAND*/
+      if(CMD_NAME === 'answerme'){
+        if(args.length != 2){
+          console.log("wrong usage")
+          return
+        }
+        sanction_command.answerme(client,message,args)
+      }
     }
 
     
