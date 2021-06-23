@@ -1,5 +1,5 @@
 require("dotenv").config();
-
+const utils_command = require("./command/utils")
 const { Client, WebhookClient } = require('discord.js');
 
 const client = new Client({
@@ -24,11 +24,22 @@ client.on('message', async (message) => {
       .trim()
       .substring(PREFIX.length)
       .split(/\s+/);
+    
+    /*USER COMMAND*/
     if (CMD_NAME === 'ping') {
-     
+      utils_command.ping(client,message)
     } else if (CMD_NAME === 'pong') {
-      
+      utils_command.pong(client,message)
     } 
+    
+    if(!message.member.roles.cache.has(process.env.IS_MODERATEUR)){
+      utils_command.not_allowed(client,message)
+      return
+    }else{
+      /*MODERATOR COMMAND*/
+    }
+
+    
   }
 });
 
