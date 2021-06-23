@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 Skip to content
 Pull requests
@@ -31,6 +32,8 @@ Latest commit e2db96a 7 minutes ago
 History
 1 contributor
 104 lines (76 sloc) 1.57 KB
+=======
+>>>>>>> e2db96a9ae58dfc0ce4def345f49786965d0ed23
 # Logs
 logs
 *.log
@@ -135,19 +138,3 @@ dist
 
 # TernJS port file
 .tern-port
-
-    © 2021 GitHub, Inc.
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
-
-    Contact GitHub
-    Pricing
-    API
-    Training
-    Blog
-    About
-
-Loading complete
