@@ -8,12 +8,12 @@ module.exports = sequelize => {
 	}
 
 	Guild_User.init({
-		is_mute: DataTypes.BOOLEAN,
-        is_ban: DataTypes.BOOLEAN,
-        is_kick: DataTypes.BOOLEAN,
-        is_answerme: DataTypes.BOOLEAN,
-        time_ban: DataTypes.INTEGER,
-        time_mute: DataTypes.INTEGER
+		is_mute: {type:DataTypes.BOOLEAN, defaultvalue: false},
+        is_ban: {type:DataTypes.BOOLEAN, defaultvalue: false},
+        is_kick: {type:DataTypes.BOOLEAN, defaultvalue: false},
+        is_answerme: {type:DataTypes.BOOLEAN, defaultvalue: false},
+        time_ban: {type:DataTypes.INTEGER, defaultvalue: 0},
+        time_bute: {type:DataTypes.INTEGER, defaultvalue: 0},
 	}, {
 		sequelize,
 		modelName: 'Guild_User'
