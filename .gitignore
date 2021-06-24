@@ -1,5 +1,6 @@
 #.env file
 .env
+db.sqlite
 # Logs
 logs
 *.log
