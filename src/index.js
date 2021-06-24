@@ -1,6 +1,10 @@
 require("dotenv").config();
 const utils_command = require("./command/utils")
 const sanction_command = require("./command/sanction")
+const user_controller = require('./controllers/user');
+const guild_controller = require('./controllers/guild');
+
+
 const { Client, WebhookClient } = require('discord.js');
 
 const client = new Client({
@@ -55,4 +59,41 @@ client.on('message', async (message) => {
 client.login(process.env.BOT_TOKEN);
 client.on("ready", () => {
   client.user.setActivity(`I will kill you`);
+
+  const list_guild = client.guilds.cache;
+  list_guild.forEach((value, key) => {
+    
+    if(value.available){
+      var test = false;
+      list_member = value.members.cache.filter(member => !member.user.bot).forEach(
+        (member) => {
+          var member_test = null
+          if(!test){
+            member_test = member
+            test = !test;
+          }
+          if(member_test != null){
+            var guild = guild_controller.get_by_id(member_test.guild.id)
+            .then((response) => {
+              guild = response
+              console.log(guild)
+              if(guild === null){
+                guild_controller.create(member_test.guild)
+              }
+              user_controller.create(member)
+            })
+            .catch((err) => console.log(err))
+           
+          }
+
+        }
+      )
+      
+      
+
+      
+
+    }
+
+  })
 });

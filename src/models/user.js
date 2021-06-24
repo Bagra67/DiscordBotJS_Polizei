@@ -4,7 +4,7 @@ module.exports = sequelize => {
 
 	class User extends Sequelize.Model {
 		static associate(db) {
-			User.belongsToMany(db.Guild, { through: 'Guild_Person' });
+			User.belongsToMany(db.Guild, { through: 'Guild_User' });
 
 		}
 	}

@@ -11,20 +11,20 @@ module.exports = {
 	},
 
 
-	get_by_id: (guild_id) => {
-		return db.Guild.findOne({ 
+	get_by_id: async (guild_id) => {
+		return await db.Guild.findOne({ 
             where: {
                 guild_id: guild_id
             }
             })
-			.then(user => console.log("user" + guild_id + 'found'))
+			.then()
 			.catch((err) => console.log(err));
 	},
 
 
-	create: (guild) => {
+	create: async (guild) => {
         
-		return db.Guild.create({ 
+		return await db.Guild.create({ 
             guild_id: guild.id,
             guild_name: guild.name
         })

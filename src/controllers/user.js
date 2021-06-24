@@ -33,7 +33,7 @@ module.exports = {
 	    .catch((err) => console.log(err));
 
         const guild = guild_controller.get_by_id(member.guild.id)
-        await user.addGuild(guild, { through: { selfGranted: false } });
+        user.addGuild(guild);
 
 		return user
 	}
