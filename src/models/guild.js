@@ -2,20 +2,19 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
 
-	class Group extends Sequelize.Model {
+	class Guild extends Sequelize.Model {
 		static associate(db) {
-			Group.belongsToMany(db.Person, { through: 'GroupPerson' });
+			Guild.belongsToMany(db.User, { through: 'Guild_User' });
 		};
 	}
 
-	Group.init({
-		title: {
-			type: DataTypes.STRING   
-        }
+	Guild.init({
+		guild_id: DataTypes.INTEGER,
+        guild_name: DataTypes.STRING
 	}, {
 		sequelize,
-		modelName: 'Group'
+		modelName: 'Guild'
 	});
 
-	return Group;
+	return Guild;
 };
