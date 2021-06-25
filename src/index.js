@@ -73,13 +73,13 @@ client.on("ready", () => {
             test = !test;
           }
           if(member_test != null){
-            var guild = guild_controller.get_by_id(member_test.guild.id)
+            var guild_db = guild_controller.get_by_id(member_test.guild.id)
             .then((response) => {
-              guild = response
-              if(guild === null){
+              guild_db = response
+              if(guild_db === null){
                 guild_controller.create(member_test.guild)
               }
-              user_controller.create(member, guild)
+              user_controller.create(member, guild_db)
             })
             .catch((err) => console.log("error"))
            

@@ -11,24 +11,20 @@ module.exports = {
 	},
 
 
-	get_by_id: async (guild_id) => {
-		return await db.Guild.findOne({ 
-            where: {
-                guild_id: guild_id
-            }
-            })
-			.then()
+	get_by_id: (guild_id) => {
+		return db.Guild.findByPk(guild_id)
+			.then((guild) => {return guild})
 			.catch((err) => console.log(err));
 	},
 
 
-	create: async (guild) => {
+	create: (guild) => {
         
-		return await db.Guild.create({ 
+		return db.Guild.create({ 
             guild_id: guild.id,
             guild_name: guild.name
         })
-        .then(console.log(guil.name + ' added on database'))
+        .then(console.log(guild.name + ' added on database'))
 	    .catch((err) => console.log(err));
 	}
 
