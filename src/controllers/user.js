@@ -24,16 +24,15 @@ module.exports = {
 	},
 
 
-	create: (member) => {
+	create: (member, guild) => {
         const user = db.User.create({ 
             user_id: member.user.id,
             user_tag: member.user.tag
         })
         .then(console.log(member.user.tag + ' added on database'))
-	    .catch((err) => console.log(err));
+	    .catch((err) => console.log("err"));
 
-        const guild = guild_controller.get_by_id(member.guild.id)
-        user.addGuild(guild);
+        user.addGuild(guild)
 
 		return user
 	}

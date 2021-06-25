@@ -2,12 +2,12 @@ const { Sequelize, DataTypes } = require('sequelize');
 
 module.exports = sequelize => {
 
-	class Guild_User extends Sequelize.Model {
+	class Guild_Users extends Sequelize.Model {
 		static associate(db) {
 		};
 	}
 
-	Guild_User.init({
+	Guild_Users.init({
 		is_mute: {type:DataTypes.BOOLEAN, defaultvalue: false},
         is_ban: {type:DataTypes.BOOLEAN, defaultvalue: false},
         is_kick: {type:DataTypes.BOOLEAN, defaultvalue: false},
@@ -16,8 +16,8 @@ module.exports = sequelize => {
         time_bute: {type:DataTypes.INTEGER, defaultvalue: 0},
 	}, {
 		sequelize,
-		modelName: 'Guild_User'
+		modelName: 'Guild_Users'
 	});
 
-	return Guild_User;
+	return Guild_Users;
 };
